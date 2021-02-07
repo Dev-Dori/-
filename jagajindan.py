@@ -1,0 +1,41 @@
+import selenium
+import time
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
+
+options = webdriver.ChromeOptions()
+options.add_argument('headless')
+options.add_argument('window-size=1920x1080')
+options.add_argument("disable-gpu")
+
+driver=webdriver.Chrome(chrome_options=options,executable_path="../../../../../../../../..//volume3/VOL3_RED/자가진단/chromedriver")
+driver.get('https://hcs.eduro.go.kr/#/loginHome')
+driver.implicitly_wait(10)
+driver.find_element_by_xpath('//*[@id="btnConfirm2"]').click()
+driver.implicitly_wait(10)
+driver.find_element_by_xpath('//*[@id="schul_name_input"]').click()
+driver.find_element_by_xpath('//*[@id="sidolabel"]/option[2]').click()
+driver.find_element_by_xpath('//*[@id="crseScCode"]/option[5]').click()
+time.sleep(0.3)
+driver.find_element_by_xpath('//*[@id="orgname"]').send_keys("선린인터넷고등학교")
+driver.implicitly_wait(10)
+driver.find_element_by_xpath('//*[@id="softBoardListLayer"]/div[2]/div[1]/table/tbody/tr[3]/td[2]/button').click()
+driver.find_element_by_xpath('//*[@id="softBoardListLayer"]/div[2]/div[1]/ul/li/a/p').click()
+driver.find_element_by_xpath('//*[@id="softBoardListLayer"]/div[2]/div[2]/input').click()
+driver.implicitly_wait(10)
+driver.find_element_by_xpath('//*[@id="user_name_input"]').send_keys("임도현")
+driver.find_element_by_xpath('//*[@id="birthday_input"]').send_keys("040114")
+driver.find_element_by_xpath('//*[@id="btnConfirm"]').click()
+driver.implicitly_wait(10)
+time.sleep(5)
+driver.find_element_by_xpath('//*[@id="WriteInfoForm"]/table/tbody/tr/td/input').send_keys("0114")
+driver.find_element_by_xpath('//*[@id="btnConfirm"]').click()
+driver.implicitly_wait(10)
+time.sleep(5)
+driver.find_element_by_xpath('//*[@id="container"]/div/section[2]/div[2]/ul/li/a/em').click()
+driver.find_element_by_xpath('//*[@id="container"]/div/div[2]/div[2]/div[2]/dl[1]/dd/ul/li[1]/label').click()
+driver.find_element_by_xpath('//*[@id="container"]/div/div[2]/div[2]/div[2]/dl[2]/dd/ul/li[1]/label').click()
+driver.find_element_by_xpath('//*[@id="container"]/div/div[2]/div[2]/div[2]/dl[3]/dd/ul/li[1]/label').click()
+driver.get_screenshot_as_file('naver_main_headless.png')
+driver.find_element_by_xpath('//*[@id="btnConfirm"]').click()
